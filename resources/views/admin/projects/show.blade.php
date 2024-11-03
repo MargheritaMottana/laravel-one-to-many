@@ -56,6 +56,17 @@
                     <a class="btn btn-outline-warning btn-sm" href="{{ route('admin.projects.edit', ['project' => $project->id]) }}">
                         ໒(⊙ᴗ⊙)७✎
                     </a>
+
+                    {{-- form con rotta a destroy() + parametro, per eliminare il progetto --}}
+                    <form action="{{ route('admin.projects.destroy', ['project'=> $project->id] ) }}" method="POST" class="d-inline-block"
+                        onsubmit="return confirm('Are u sure u want to delete this project? ໒(x‸x)७')"    
+                    >
+                        @csrf
+                        @method('DELETE')
+                            <button class="btn btn-outline-danger btn-sm">
+                                ໒(x‸x)७
+                            </button>
+                    </form>
                 </div>
             </div>
         </div>

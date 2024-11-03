@@ -39,6 +39,17 @@
                     <a class="btn btn-outline-warning btn-sm" href="{{ route('admin.types.edit', ['type' => $type->id]) }}">
                         ໒(⊙ᴗ⊙)७✎
                     </a>
+
+                    {{-- form con rotta a destroy() + parametro, per eliminare il progetto --}}
+                    <form action="{{ route('admin.types.destroy', ['type'=> $type->id] ) }}" method="POST" class="d-inline-block"
+                        onsubmit="return confirm('Are u sure u want to delete this type? ໒(x‸x)७')"    
+                    >
+                        @csrf
+                        @method('DELETE')
+                            <button class="btn btn-outline-danger btn-sm">
+                                ໒(x‸x)७
+                            </button>
+                    </form>
                 </div>
             </div>
         </div>
