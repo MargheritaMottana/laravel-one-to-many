@@ -52,6 +52,11 @@
                         {!! nl2br($project->description) !!}
                     </p>
 
+                    {{-- rotta alla index per vedere tutta la lista di progetti --}}
+                    <a class="btn btn-outline-primary btn-sm" href="{{ route('admin.projects.index') }}">
+                        ▤
+                    </a>
+
                     {{-- rotta alla view per modificare il progetto, specificando il parametro del singolo progetto --}}
                     <a class="btn btn-outline-warning btn-sm" href="{{ route('admin.projects.edit', ['project' => $project->id]) }}">
                         ໒(⊙ᴗ⊙)७✎

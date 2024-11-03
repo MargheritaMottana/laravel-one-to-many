@@ -60,6 +60,11 @@
                                 </a>
                             </div>
 
+                            {{-- rotta alla index per vedere tutta la lista di type --}}
+                            <a class="btn btn-outline-primary" href="{{ route('admin.types.index') }}">
+                                ▤
+                            </a>
+
                         </div>
 
                     </form>

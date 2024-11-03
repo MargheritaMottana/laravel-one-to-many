@@ -104,6 +104,11 @@
                                 </a>
                             </div>
 
+                            {{-- rotta alla index per vedere tutta la lista di progetti --}}
+                            <a class="btn btn-outline-primary" href="{{ route('admin.projects.index') }}">
+                                ▤
+                            </a>
+
                         </div>
 
                     </form>

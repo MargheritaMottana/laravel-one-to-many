@@ -35,6 +35,11 @@
                         </li>
                     </ul>
 
+                    {{-- rotta alla index per vedere tutta la lista di type --}}
+                    <a class="btn btn-outline-primary btn-sm" href="{{ route('admin.types.index') }}">
+                        ▤
+                    </a>
+
                     {{-- rotta alla view per modificare il progetto, specificando il parametro del singolo progetto --}}
                     <a class="btn btn-outline-warning btn-sm" href="{{ route('admin.types.edit', ['type' => $type->id]) }}">
                         ໒(⊙ᴗ⊙)७✎
