@@ -19,4 +19,12 @@ class Project extends Model
         'published',
         'type_id',
     ];
+
+    // relationship 
+
+    // un progetto vede un type
+
+    public function type(){
+        return $this->belongsTo(Type::class);
+    }
 }
