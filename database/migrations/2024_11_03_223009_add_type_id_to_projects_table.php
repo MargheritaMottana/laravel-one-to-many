@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('projects', function (Blueprint $table) {
-            // creo la colonna type_id
-            $table->unsignedBigInteger('type_id')->nullable();
+            // creo la colonna type_id (specificando nullable e dopo quale colonna inserirla)
+            $table->unsignedBigInteger('type_id')->nullable()->after('published');
             // aggiungo foreign key sulla colonna type_id
             $table->foreign('type_id')
                 ->references('id')

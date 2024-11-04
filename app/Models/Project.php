@@ -17,5 +17,6 @@ class Project extends Model
         'client',
         'sector',
         'published',
+        'type_id',
     ];
 }

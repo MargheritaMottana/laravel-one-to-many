@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 
 // model
 use App\Models\Project;
+use App\Models\Type;
 
 class ProjectSeeder extends Seeder
 {
@@ -24,6 +25,9 @@ class ProjectSeeder extends Seeder
             // aggiunta slug
             $slug = str()->slug($title);
 
+            // mi prendo un'istanza casuale dalla tabella dei type
+            $randomType= Type::inRandomOrder()->first();
+
             Project::create([
 
                 'title' => $title,
@@ -33,6 +37,9 @@ class ProjectSeeder extends Seeder
                 'client' => fake()->words(2, true),
                 'sector' => fake()->word(),
                 'published' => fake()->boolean(70),
+
+                // aggiungo la colonna type_id
+                'type_id' => $randomType->id,
 
             ]);
         }
