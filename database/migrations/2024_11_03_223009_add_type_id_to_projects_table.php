@@ -17,7 +17,9 @@ return new class extends Migration
             // aggiungo foreign key sulla colonna type_id
             $table->foreign('type_id')
                 ->references('id')
-                ->on('types');
+                ->on('types')
+                ->onUpdate('cascade')
+                ->onDelete('set null');
         });
     }
 

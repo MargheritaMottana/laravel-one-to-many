@@ -64,7 +64,7 @@
 
                     {{-- rotta alla view per modificare il progetto, specificando il parametro del singolo progetto --}}
                     <a class="btn btn-outline-warning btn-sm" href="{{ route('admin.types.edit', ['type' => $type->id]) }}">
-                        ໒(⊙ᴗ⊙)७✎
+                        ໒(•ᴗ•)७✎
                     </a>
 
                     {{-- form con rotta a destroy() + parametro, per eliminare il progetto --}}
