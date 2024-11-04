@@ -33,9 +33,13 @@
                           <tr>
                             <th scope="col">#</th>
                             <th scope="col">Title</th>
+
+                            {{-- aggiunta sezione type in seguito ad aver stabilito la relazione tra project e type --}}
+                            <th scope="col" class="text-center">Type</th>
+
                             <th scope="col">Client</th>
                             <th scope="col">Sector</th>
-                            <th scope="col">Published</th>
+                            <th scope="col" class="text-center">Published</th>
                             <th scope="col">Actions</th>
                           </tr>
                         </thead>
@@ -45,10 +49,25 @@
                                 <tr>
                                     <th scope="row">{{ $project->id }}</th>
                                     <td>{{ $project->title }}</td>
+
+                                    {{-- aggiunta sezione type --}}
+                                    <td class="text-center">
+                                        {{-- se esiste il type associato al progetto --}}
+                                        @if (isset($project->type))
+                                            {{-- mostrami l'id e il suo titolo --}}
+                                            <a href="{{ route('admin.types.show', ['type' => $project->type_id] ) }}">
+                                                {{ $project->type_id}} - {{$project->type->title}}
+                                            </a>
+                                        @else
+                                            {{-- altrimenti mostrami un trattino --}}
+                                            -
+                                        @endif
+                                    </td>
+
                                     <td>{{ $project->client }}</td>
                                     <td>{{ $project->sector }}</td>
                                     {{-- se il progetto è pubblicato 'Yes', altrimenti 'No' --}}
-                                    <td>{{ $project->published ? 'Yes' : 'No' }}</td>
+                                    <td class="text-center">{{ $project->published ? 'Yes' : 'No' }}</td>
                                     <td>
                                         {{-- rotta alla view per vedere il progetto, specificando il parametro del singolo progetto --}}
                                         <a class="btn btn-outline-primary btn-sm" href="{{ route('admin.projects.show', ['project' => $project->id]) }}">

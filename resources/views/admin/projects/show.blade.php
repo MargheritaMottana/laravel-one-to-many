@@ -43,6 +43,19 @@
                         <li>
                             Published: {{ $project->published ? 'Yes' : 'No' }}
                         </li>
+
+                        {{-- aggiunta sezione type --}}
+                        <li>
+                            Type:
+                            @if (isset($project->type))
+                                <a href="{{ route('admin.types.show', ['type' => $project->type_id] ) }}">
+                                    {{ $project->type_id}} - {{$project->type->title}}
+                                </a>
+                            @else
+                                -
+                            @endif
+                        </li>
+
                     </ul>
 
                     <p class="mb-4">
