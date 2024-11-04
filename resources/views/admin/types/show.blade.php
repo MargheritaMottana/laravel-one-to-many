@@ -33,6 +33,28 @@
                         <li>
                             Slug: {{ $type->slug }}
                         </li>
+
+                        {{-- aggunta sezione per vedere quali progetti sono collegati al type --}}
+                        <li>
+                            Linked Projects:
+
+                            {{-- se ci sono post collegati --}}
+                            @if ($type->projects()->count() > 0)
+                                <ul>
+                                    @foreach ($type->projects as $project)
+                                        <li>
+                                            <a href="{{ route('admin.projects.show', ['project'=> $project->id] ) }}">
+                                                {{ $project->title }}
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+
+                            {{-- altrimenti --}}
+                            @else
+                                None
+                            @endif
+                        </li>
                     </ul>
 
                     {{-- rotta alla index per vedere tutta la lista di type --}}

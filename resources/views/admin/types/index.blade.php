@@ -33,6 +33,7 @@
                           <tr>
                             <th scope="col">#</th>
                             <th scope="col">Title</th>
+                            <th scope="col">Linked Projects</th>
                             <th scope="col">Actions</th>
                           </tr>
                         </thead>
@@ -42,6 +43,13 @@
                                 <tr>
                                     <th scope="row">{{ $type->id }}</th>
                                     <td>{{ $type->title }}</td>
+
+                                    {{-- aggiunta colonna per linkare ai progetti che hanno dei type --}}
+                                    <td>
+                                        {{-- conteggio di quanti progetti sono collegati al type --}}
+                                        {{ count($type->projects) }}
+                                    </td>
+
                                     <td>
                                         {{-- rotta alla view per vedere il progetto, specificando il parametro del singolo progetto --}}
                                         <a class="btn btn-outline-primary btn-sm" href="{{ route('admin.types.show', ['type' => $type->id]) }}">
