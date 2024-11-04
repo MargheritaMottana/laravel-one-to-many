@@ -75,6 +75,32 @@
                                 <input value="{{ old('sector', $project->sector) }}" type="text" minlength="3" maxlength="64" id="sector" name="sector" placeholder="Write the sector of the project..." class="form-control">
                             </div>
 
+                            <div class="col-2">
+                                <label for="type_id" class="form-label">
+                                    Type
+                                </label>
+                                <select id="type_id" name="type_id" class="form-select">
+                                    <option 
+
+                                        @if (old('type_id', $project->type_id) == null)
+                                            selected
+                                        @endif
+
+                                        value="" selected disabled> Select a Type </option>
+
+                                    @foreach ($types as $type)
+                                        <option 
+
+                                            @if (old('type_id', $project->type_id) == $type->id)
+                                                selected
+                                            @endif
+
+                                            value="{{ $type->id }}"> {{ $type->title }} </option>
+                                    @endforeach
+
+                                </select>
+                            </div>
+
                         </div>
 
                         <div class="form-check mb-5">
